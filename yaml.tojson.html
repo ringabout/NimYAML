@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>NimYAML - Module yaml.tojson</title>
+  <title>NimYAML - Module yaml/tojson</title>
 
   <link href="docutils.css" rel="stylesheet" type="text/css"/>
   <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -34,6 +34,7 @@
       <li><a href="yaml.parser.html">yaml.parser</a></li>
       <li><a href="yaml.presenter.html">yaml.presenter</a></li>
       <li><a href="yaml.serialization.html">yaml.serialization</a></li>
+      <li><a href="yaml.annotations.html">yaml.annotations</a></li>
       <li><a href="yaml.stream.html">yaml.stream</a></li>
       <li><a href="yaml.taglib.html">yaml.taglib</a></li>
       <li><a href="yaml.tojson.html">yaml.tojson</a></li>
@@ -42,10 +43,24 @@
 </header>
 <article id="documentId">
   <div class="container">
-    <h1 class="title">Module yaml.tojson</h1>
+    <h1 class="title">Module yaml/tojson</h1>
     <div class="row">
   <div class="three columns">
-  <div>
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+    &nbsp;&nbsp;&nbsp; <em>Dark Mode</em>
+  </div>
+  <div id="global-links">
+    <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
+    </ul>
+  </div>
+  <div id="searchInputDiv">
     Search: <input type="text" id="searchInput"
       onkeyup="search()" />
   </div>
@@ -66,12 +81,18 @@
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#constructJson,YamlStream"
-    title="constructJson(s: var YamlStream): seq[JsonNode]"><wbr />construct<wbr />Json</a></li>
-  <li><a class="reference" href="#loadToJson,Stream"
-    title="loadToJson(s: Stream): seq[JsonNode]"><wbr />load<wbr />To<wbr />Json</a></li>
-  <li><a class="reference" href="#loadToJson,string"
-    title="loadToJson(str: string): seq[JsonNode]"><wbr />load<wbr />To<wbr />Json</a></li>
+      <ul class="simple nested-toc-section">constructJson
+      <li><a class="reference" href="#constructJson%2CYamlStream"
+    title="constructJson(s: var YamlStream): seq[JsonNode]">constructJson,<wbr>YamlStream</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">loadToJson
+      <li><a class="reference" href="#loadToJson%2CStream"
+    title="loadToJson(s: Stream): seq[JsonNode]">loadToJson,<wbr>Stream</a></li>
+  <li><a class="reference" href="#loadToJson%2Cstring"
+    title="loadToJson(str: string): seq[JsonNode]">loadToJson,<wbr>string</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -81,43 +102,38 @@
   </div>
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
+  
   <p class="module-desc"><p>The tojson API enables you to parser a YAML character stream into the JSON structures provided by Nim's stdlib.</p>
 </p>
   <section id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="json.html">json</a>, <a class="reference external" href="streams.html">streams</a>, <a class="reference external" href="strutils.html">strutils</a>, <a class="reference external" href="tables.html">tables</a>, <a class="reference external" href="taglib.html">taglib</a>, <a class="reference external" href="hints.html">hints</a>, <a class="reference external" href="serialization.html">serialization</a>, <a class="reference external" href="stream.html">stream</a>, <a class="reference external" href="private/internal.html">private/internal</a>, <a class="reference external" href="parser.html">parser</a>
+<a class="reference external" href="data.html">data</a>, <a class="reference external" href="hints.html">hints</a>, <a class="reference external" href="serialization.html">serialization</a>, <a class="reference external" href="stream.html">stream</a>, <a class="reference external" href="internal.html">internal</a>, <a class="reference external" href="parser.html">parser</a>
 </dl></section>
 <section id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<dt id="constructJson"><a name="constructJson,YamlStream"></a><pre><span class="Keyword">proc</span> <span class="Identifier">constructJson</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">YamlStream</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">YamlConstructionError</span><span class="Other">,</span> <span class="Identifier">YamlStreamError</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="constructJson"><a name="constructJson,YamlStream"></a><pre><span class="Keyword">proc</span> <a href="#constructJson%2CYamlStream"><span class="Identifier">constructJson</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="stream.html#YamlStream"><span class="Identifier">YamlStream</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><a href="serialization.html#YamlConstructionError"><span class="Identifier">YamlConstructionError</span></a><span class="Other">,</span> <a href="stream.html#YamlStreamError"><span class="Identifier">YamlStreamError</span></a><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>Construct an in-memory JSON tree from a YAML event stream. The stream may not contain any tags apart from those in <tt class="docutils literal"><span class="pre">coreTagLibrary</span></tt>. Anchors and aliases will be resolved. Maps in the input must not contain non-scalars as keys. Each element of the result represents one document in the YAML stream.</p>
 <p><strong>Warning:</strong> The special float values <tt class="docutils literal"><span class="pre">[+-]Inf</span></tt> and <tt class="docutils literal"><span class="pre">NaN</span></tt> will be parsed into Nim's JSON structure without error. However, they cannot be rendered to a JSON character stream, because these values are not part of the JSON specification. Nim's JSON implementation currently does not check for these values and will output invalid JSON when rendering one of these values into a JSON character stream.</p>
 
-&nbsp;&nbsp;<a
-href="/yaml/tojson.nim#L79"
-class="link-seesrc" target="_blank">Source</a>
+
 </dd>
-<dt id="loadToJson"><a name="loadToJson,Stream"></a><pre><span class="Keyword">proc</span> <span class="Identifier">loadToJson</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">Stream</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">YamlParserError</span><span class="Other">,</span>
-    <span class="Identifier">YamlConstructionError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="loadToJson"><a name="loadToJson,Stream"></a><pre><span class="Keyword">proc</span> <a href="#loadToJson%2CStream"><span class="Identifier">loadToJson</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">Stream</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><a href="parser.html#YamlParserError"><span class="Identifier">YamlParserError</span></a><span class="Other">,</span> <a href="serialization.html#YamlConstructionError"><span class="Identifier">YamlConstructionError</span></a><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">OSError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">RootEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Uses <a class="reference external" href="#YamlParser">YamlParser</a> and <a class="reference external" href="#constructJson">constructJson</a> to construct an in-memory JSON tree from a YAML character stream.
-&nbsp;&nbsp;<a
-href="/yaml/tojson.nim#L180"
-class="link-seesrc" target="_blank">Source</a>
+
 </dd>
-<dt id="loadToJson"><a name="loadToJson,string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">loadToJson</span><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">YamlParserError</span><span class="Other">,</span> <span class="Identifier">YamlConstructionError</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="loadToJson"><a name="loadToJson,string"></a><pre><span class="Keyword">proc</span> <a href="#loadToJson%2Cstring"><span class="Identifier">loadToJson</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">JsonNode</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><a href="parser.html#YamlParserError"><span class="Identifier">YamlParserError</span></a><span class="Other">,</span> <a href="serialization.html#YamlConstructionError"><span class="Identifier">YamlConstructionError</span></a><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">RootEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Uses <a class="reference external" href="#YamlParser">YamlParser</a> and <a class="reference external" href="#constructJson">constructJson</a> to construct an in-memory JSON tree from a YAML character stream.
-&nbsp;&nbsp;<a
-href="/yaml/tojson.nim#L198"
-class="link-seesrc" target="_blank">Source</a>
+
 </dd>
 
 </dl></section>
@@ -129,7 +145,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2017-09-20 19:08:38 UTC</small>
+        <small>Made with Nim. Generated: 2021-05-17 23:01:08 UTC</small>
       </div>
     </div>
   </div>

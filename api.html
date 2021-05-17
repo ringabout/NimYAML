@@ -34,6 +34,7 @@
       <li><a href="yaml.parser.html">yaml.parser</a></li>
       <li><a href="yaml.presenter.html">yaml.presenter</a></li>
       <li><a href="yaml.serialization.html">yaml.serialization</a></li>
+      <li><a href="yaml.annotations.html">yaml.annotations</a></li>
       <li><a href="yaml.stream.html">yaml.stream</a></li>
       <li><a href="yaml.taglib.html">yaml.taglib</a></li>
       <li><a href="yaml.tojson.html">yaml.tojson</a></li>
@@ -46,7 +47,7 @@
     
 <h1 id="introduction">Introduction</h1><p>NimYAML advocates parsing YAML input into native Nim types. Basic Nim library types like integers, floats and strings, as well as all tuples, enums and objects without private fields are supported out-of-the-box. Reference types are also supported, and NimYAML is able to detect if a reference occurs more than once and will serialize it accordingly. This means that NimYAML is able to dump and load potentially cyclic objects.</p>
 <p>While loading into and dumping from native Nim types is the preferred way to use NimYAML, it also gives you complete control over each processing step, so that you can for example only use the parser and process its event stream yourself. The following diagram gives an overview of NimYAML's features based on the YAML processing pipeline. The items and terminology YAML defines is shown in <em>italic</em>, NimYAML's implementation name is shown in <strong>bold</strong>.</p>
-<object data="processing.svg" type="image/svg+xml" ></object>
+<img src="processing.svg"/>
 <h1 id="intermediate-representation">Intermediate Representation</h1><p>The base of all YAML processing with NimYAML is the <a class="reference external" href="yaml.stream.html#YamlStream">YamlStream</a>. This is basically an iterator over <a class="reference external" href="yaml.stream.html#YamlStreamEvent">YamlStreamEvent</a> objects. Every proc that represents a single stage of the loading or dumping process will either take a <tt class="docutils literal"><span class="pre">YamlStream</span></tt> as input or return a <tt class="docutils literal"><span class="pre">YamlStream</span></tt>. Procs that implement the whole process in one step hide the <tt class="docutils literal"><span class="pre">YamlStream</span></tt> from the user. Every proc that returns a <tt class="docutils literal"><span class="pre">YamlStream</span></tt> guarantees that this stream is well-formed according to the YAML specification.</p>
 <p>This stream-oriented API can efficiently be used to parse large amounts of data. The drawback is that errors in the input are only discovered while processing the <tt class="docutils literal"><span class="pre">YamlStream</span></tt>. If the <tt class="docutils literal"><span class="pre">YamlStream</span></tt> encounters an exception while producing the next event, it will throw a <tt class="docutils literal"><span class="pre">YamlStreamError</span></tt> which contains the original exception as <tt class="docutils literal"><span class="pre">parent</span></tt>. The caller should know which exceptions are possible as parents of <tt class="docutils literal"><span class="pre">YamlStream</span></tt> because they know the source of the <tt class="docutils literal"><span class="pre">YamlStream</span></tt> they provided.</p>
 
@@ -68,7 +69,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2017-09-20 19:08:33 UTC</small>
+        <small>Made with Nim. Generated: 2021-05-17 23:01:03 UTC</small>
       </div>
     </div>
   </div>

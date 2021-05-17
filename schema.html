@@ -34,6 +34,7 @@
       <li><a href="yaml.parser.html">yaml.parser</a></li>
       <li><a href="yaml.presenter.html">yaml.presenter</a></li>
       <li><a href="yaml.serialization.html">yaml.serialization</a></li>
+      <li><a href="yaml.annotations.html">yaml.annotations</a></li>
       <li><a href="yaml.stream.html">yaml.stream</a></li>
       <li><a href="yaml.taglib.html">yaml.taglib</a></li>
       <li><a href="yaml.tojson.html">yaml.tojson</a></li>
@@ -105,7 +106,7 @@
 <tr><td><tt class="docutils literal"><span class="pre">!!timestamp</span></tt></td><td>Maps to Nim's <tt class="docutils literal"><span class="pre">Time</span></tt> type</td></tr>
 <tr><td><tt class="docutils literal"><span class="pre">!!value</span></tt></td><td>Not supported and unlikely to be implemented</td></tr>
 <tr><td><tt class="docutils literal"><span class="pre">!!yaml</span></tt></td><td>Not supported and unlikely to be implemented</td></tr>
-</table><p><tt class="docutils literal"><span class="pre">!!int</span></tt> and <tt class="docutils literal"><span class="pre">!!float</span></tt> are not supported out of the box to let the user choose where to map them (for example, <tt class="docutils literal"><span class="pre">!!int</span></tt> may map to <tt class="docutils literal"><span class="pre">int32</span></tt> or <tt class="docutils literal"><span class="pre">int64</span></tt>, or the the generic <tt class="docutils literal"><span class="pre">int</span></tt> whose size is platform-dependent). If one wants to use <tt class="docutils literal"><span class="pre">!!int``or ``!!float</span></tt>, the process is to create a <tt class="docutils literal"><span class="pre">distinct</span></tt> type derived from the desired base type and then set its tag using <tt class="docutils literal"><span class="pre">setTagUri</span></tt>.</p>
+</table><p><tt class="docutils literal"><span class="pre">!!int</span></tt> and <tt class="docutils literal"><span class="pre">!!float</span></tt> are not supported out of the box to let the user choose where to map them (for example, <tt class="docutils literal"><span class="pre">!!int</span></tt> may map to <tt class="docutils literal"><span class="pre">int32</span></tt> or <tt class="docutils literal"><span class="pre">int64</span></tt>, or the the generic <tt class="docutils literal"><span class="pre">int</span></tt> whose size is platform-dependent). If one wants to use <tt class="docutils literal"><span class="pre">!!int</span></tt>or <tt class="docutils literal"><span class="pre">!!float</span></tt>, the process is to create a <tt class="docutils literal"><span class="pre">distinct</span></tt> type derived from the desired base type and then set its tag using <tt class="docutils literal"><span class="pre">setTagUri</span></tt>.</p>
 <p><tt class="docutils literal"><span class="pre">!!merge</span></tt> and <tt class="docutils literal"><span class="pre">!!value</span></tt> are not supported because the semantics of these types would make a multi-pass loading process necessary and if one takes the tag system seriously, <tt class="docutils literal"><span class="pre">!!merge</span></tt> can only be used with YAML's collection types, which, as explained above, cannot be supported.</p>
 
 
@@ -114,7 +115,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2017-09-20 19:08:33 UTC</small>
+        <small>Made with Nim. Generated: 2021-05-17 23:01:03 UTC</small>
       </div>
     </div>
   </div>
